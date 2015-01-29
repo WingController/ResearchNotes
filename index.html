@@ -37,18 +37,34 @@
         </div>
         <article class="markdown-body">
           <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>OR, PL, and LR</h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>OR, PL, and L2R</h3>
 
 <p>
-    1. Ordinal Regression (OR): 序回归的目标是预测有序数据(Ordinal Data)的类别。给定一个有限的标签集合Y，不同的标签之间存在一个自然的序关系。对于每个样例x，有唯一一个标签。
+    1. <b>Ordinal Regression (OR):</b> 序回归的目标是预测有序数据(Ordinal Data)的类别。给定一个有限的标签集合Y，不同的标签之间存在一个自然的序关系。对于每个样例x，有唯一一个标签。
 </p>
+
 <p>
-    2. Preference Learning (PL): http://en.wikipedia.org/wiki/Preference_learning 偏好学习的目标是从观察到的偏好信息中学习一个偏好模型。根据观察到的偏好信息的不同，可以将
+    2. <b>Preference Learning (PL):</b> http://en.wikipedia.org/wiki/Preference_learning 偏好学习的目标是从观察到的偏好信息中学习一个偏好模型。根据观察到的偏好信息的不同，可以将
     偏好学习的任务划分为以下3类问题：
-    <br />2.1. Label Ranking: In label ranking, the model has an instance space  <img src="http://latex.codecogs.com/gif.latex?X=\{x_i\}" title="X=\{x_i\}" />
-     and a finite set of labels Y=\{y_i|i=1,2,\cdots,k\}\,\!. The preference information 
-    is given in the form y_i \succ_{x} y_j\,\! indicating instance x\,\! shows preference in y_i\,\! rather than y_j\,\!. A set of preference information is used as training data
-     in the model. The task of this model is to find a preference ranking among the labels for any instance.
+    <br />2.1. <b>Label Ranking:</b> 在标签排序中，有一个实例输入空间 <img src="http://latex.codecogs.com/gif.latex?X=\{x_i\}" title="X=\{x_i\}" /> 和一个有限的标签集合
+     <img src="http://latex.codecogs.com/gif.latex?Y=\{y_i|i=1,2,\cdots,k\}" title="Y=\{y_i|i=1,2,\cdots,k\}" />,偏好信息形式化为<img src="http://latex.codecogs.com/gif.latex?y_i&space;\succ_{x}&space;y_j" title="y_i \succ_{x} y_j" />,
+    表示x相比于标签yj更偏好于标签yi。一个偏好信息集合作为模型的训练数据，模型的任务是对于任意一个实例，在所有标签中找到一个偏好排序(preference ranking)。
+    <br />2.2. <b>Instance Ranking</b> 实例排序同样有一个实例输入集合X和一个标签集合Y，每一个x对应一个标签y，标签之间有一个固定的序关系。这类问题中，偏好信息体现在标签的序关系中，给定一组
+    带标签的实力作为训练数据，目标是学习到一个模型，从而可以给一个新的实例集合找到一个序关系。
+    <br />2.3. <b>Object Ranking:</b> 对象排序和实例排序类似，但是对象排序的实例没有标签，偏好信息体现在实例的输入空间。给定一个成对的偏好信息(<img src="http://latex.codecogs.com/gif.latex?x_i&space;\succ&space;x_j" title="x_i \succ x_j" />)
+    集合（偏序 Partial Order），这个问题的目标是为这些实例找到一个全序。
+</p>
+
+<p>
+    3. <b>Learning to Rank (L2R):</b> http://en.wikipedia.org/wiki/Learning_to_rank#cite_note-2 排序学习是通过使用机器学习技术来学习一个模型用于排序。最常见的应用就是在信息检索系统中的网页
+    排序。根据输入数据的表示形式的不同，可以将排序学习的方法分为以下三类：
+    <br />3.1. <b>Pointwise approach:</b> 类似于偏好学习中的标签排序。训练数据中的每一个“查询-文档”对都有一个数值或者序(Ordinal score，非常相关，一般相关，不相关)，这时L2R的任务就是预测给定“查询-文档”对
+    的分值。序回归（OR）和分类（Classification）算法可用于这种方式的L2R任务。
+    <br />3.2. <b>Pairwise approach:</b> 标注是两个文档的相对关系，如果文档xi比文档xj更相关，那么yij=1，这种情况下L2R问题近似于一个分类问题。通过学习一个二元分类器，来预测对于给定的一对文档，哪一个
+    文档更相关。
+    <br />3.3. <b>Listwise approach:</b> 输入是一个查询下的整个列表，列表中已经给出了文档之间的全序关系。These algorithms try to directly optimize the value of one of the above evaluation 
+    measures, averaged over all queries in the training data. This is difficult because most evaluation measures are not continuous functions with respect to ranking model's parameters, 
+    and so continuous approximations or bounds on evaluation measures have to be used.
 </p>
 
 <!-- <pre><code>$ cd your_repo_root/repo_name
