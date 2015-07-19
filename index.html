@@ -44,13 +44,12 @@
 </p>
 
 <p>
-    2. <b>Preference Learning (PL):</b> http://en.wikipedia.org/wiki/Preference_learning 偏好学习的目标是从观察到的偏好信息中学习一个偏好模型。根据观察到的偏好信息的不同，可以将
-    偏好学习的任务划分为以下3类问题：
+    2. <b>Preference Learning (PL):</b> http://en.wikipedia.org/wiki/Preference_learning 偏好学习的目标是从观察到的偏好信息中学习一个偏好模型。根据观察到的偏好信息的不同，可以将偏好学习的任务划分为以下3类问题：
     <br />2.1. <b>Label Ranking:</b> 在标签排序中，有一个实例输入空间 <img src="http://latex.codecogs.com/gif.latex?X=\{x_i\}" title="X=\{x_i\}" /> 和一个有限的标签集合
      <img src="http://latex.codecogs.com/gif.latex?Y=\{y_i|i=1,2,\cdots,k\}" title="Y=\{y_i|i=1,2,\cdots,k\}" />,偏好信息形式化为<img src="http://latex.codecogs.com/gif.latex?y_i&space;\succ_{x}&space;y_j" title="y_i \succ_{x} y_j" />,
     表示x相比于标签yj更偏好于标签yi。一个偏好信息集合作为模型的训练数据，模型的任务是对于任意一个实例，在所有标签中找到一个偏好排序(preference ranking)。
     <br />2.2. <b>Instance Ranking</b> 实例排序同样有一个实例输入集合X和一个标签集合Y，每一个x对应一个标签y，标签之间有一个固定的序关系。这类问题中，偏好信息体现在标签的序关系中，给定一组
-    带标签的实力作为训练数据，目标是学习到一个模型，从而可以给一个新的实例集合找到一个序关系。
+    带标签的实例作为训练数据，目标是学习到一个模型，从而可以给一个新的实例集合找到一个序关系。
     <br />2.3. <b>Object Ranking:</b> 对象排序和实例排序类似，但是对象排序的实例没有标签，偏好信息体现在实例的输入空间。给定一个成对的偏好信息(<img src="http://latex.codecogs.com/gif.latex?x_i&space;\succ&space;x_j" title="x_i \succ x_j" />)
     集合（偏序 Partial Order），这个问题的目标是为这些实例找到一个全序。
 </p>
